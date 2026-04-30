@@ -1,0 +1,17 @@
+{
+  "name": "RuNet Tester",
+  "short_name": "RuNetT",
+  "description": "Test accessibility of sites in internal list",
+  "scope": "/runett/",
+  "start_url": "/runett/",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "display": "standalone", 
+  "icons": [
+      {
+        "src": "/runett/img/icon.png",
+        "type": "image/png",
+        "sizes": "500x500"
+      }
+  ]
+}
