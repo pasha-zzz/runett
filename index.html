@@ -2,7 +2,10 @@
 <html>
 <head>
 <title>RuNet Tester</title>
-<link rel="manifest" href="manifest.json" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://pasha-zzz.github.io/runett/" />
+<link rel="manifest" href="/runett/manifest.webmanifest">
 <style>
   body { font-size: 1.5vw; }
 </style>
@@ -45,5 +48,13 @@ function StartTest() {
 </head>
 <body onload="StartTest()">
 <h3><font color='blue'>Testing started.</font><h3>
+<script>
+  if (navigator.serviceWorker) {
+    navigator.serviceWorker.register (
+      '/runett/sw.js',
+      {scope: '/runett/'}
+    )
+  }
+</script>
 </body>
 </html>
