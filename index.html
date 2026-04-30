@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>RuNet Tester</title>
+<link rel="manifest" href="manifest.json" />
+<style>
+  body { font-size: 1.5vw; }
+</style>
+<script>
+
+const servers = [ 'ya.ru', 'mail.ru', 'www.ozon.ru', 'www.wildberries.ru', '-',
+  'www.google.com', 'www.apple.com' ,'microsoft.com' ];
+
+function CheckServer(server, divel) {
+  const img = new Image();
+  img.setAttribute('starttime', new Date().getTime());
+  img.onload = function(idx) {
+    divel.textContent += 'OK (' + (new Date().getTime() - img.getAttribute('starttime')) + ' ms)';
+    divel.style.color = 'green';
+  }
+  img.onerror = function() {
+    divel.textContent += 'Error';
+    divel.style.color = 'red';
+    divel.style.fontWeight = 'bold';
+  }
+  img.src = 'https://' + server + '/favicon.ico';
+}
+
+function StartTest() {
+  var e;
+  for (const srv of servers) {
+    if ( srv == '-' ) {
+      e = document.createElement("hr");
+      document.body.appendChild(e);
+    } else {
+      e = document.createElement("div");
+      e.textContent = srv + '...';
+      document.body.appendChild(e);
+      CheckServer(srv, e);
+    }
+  }
+}
+</script>
+<script src="app.js" defer></script>
+</head>
+<body onload="StartTest()">
+<h3><font color='blue'>Testing started.</font><h3>
+</body>
+</html>
